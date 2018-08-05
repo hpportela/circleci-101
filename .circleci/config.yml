@@ -29,10 +29,6 @@ jobs:
           else
             echo "Nope!"; exit 1
           fi
-      - run:
-          name: Deploy Master to Heroku
-          command: |
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
 workflows:
   version: 2
   one_and_two:
@@ -41,6 +37,3 @@ workflows:
       - two:
           requires:
             - one
-          filters:
-            branches:
-              only: master
